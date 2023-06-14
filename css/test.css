@@ -1,0 +1,60 @@
+.stripes {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.first {
+  margin-top: 100px;
+  width: 50%;
+  position: relative;
+  height: 10px;
+}
+
+.second {
+  margin-top: 100px;
+  width: 10%;
+  position: relative;
+  height: 10px;
+  transform: rotate(-20deg);
+  position: absolute;
+  left: 49%;
+  top: -16px;
+}
+
+.first::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  border-bottom-right-radius: 5px;
+  background-color: blue;
+  animation: first 2s linear forwards;
+}
+
+.second::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background-color: blue;
+  animation: first 2s linear 2s forwards;
+  border-bottom-left-radius: 5px;
+}
+
+@keyframes first {
+  from {
+    right: 100%;
+    width: 0;
+  }
+  to {
+    right: 0;
+    width: 100%;
+  }
+}
